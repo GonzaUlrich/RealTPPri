@@ -2,31 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawnRhino : MonoBehaviour
+public class setActive : MonoBehaviour
 {
+    public GameObject cubo;
     public GameObject rhino;
-    public GameObject[] doors;
 
     private float timer;
     private bool col;
-    private void Update()
-    {
+    private void Update() {
         if (col)
         {
             timer += Time.deltaTime;
             if (timer > 1)
             {
-                if (rhino.name == "Rhinoceros")
-                {
-                    rhino.GetComponent<RhinoMovement>().enabled=true;
-                    for (int i = 0; i < doors.Length; i++)
-                    {
-                        doors[i].SetActive(false);
-                    }
-                }
+                cubo.SetActive(true);
+                rhino.SetActive(true);
                 timer=0;
                 col=false;
             }
+            
         }
     }
 
